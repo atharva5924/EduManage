@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Update Course</h3>
+          <form action="/updateCourse/<%= currentCourse.course_id %>" method="POST">
+            <input type="hidden" name="course_id" value="<%= currentCourse.course_id %>">
+            <div class="mb-3">
+              <label for="course" class="form-label">Select New Course</label>
+              <select id="course" name="course" class="form-control" required>
+                <% courses.forEach(course => { %>
+                  <option value="<%= course.course_id %>" <%= course.course_id === currentCourse.course_id ? 'selected' : '' %>><%= course.course_name %></option>
+                <% }); %>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Course</button>
+            <a href="/enrolledCourses" class="btn btn-secondary">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

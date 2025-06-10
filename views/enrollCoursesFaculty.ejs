@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <div class="position-relative">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+      <div class="authentication-inner py-6 mx-4">
+        <!-- Select Course Card -->
+        <div class="card p-7">
+          <div class="app-brand justify-content-center mt-5">
+            <span class="app-brand-text demo text-heading fw-semibold">🎓 My College - Faculty Course Enrollment</span>
+          </div>
+          <div class="card-body mt-1">
+            <h4 class="mb-1">Select Course to Teach</h4>
+            <p class="mb-5">Assign yourself to a course to teach for this semester.</p>
+
+            <!-- Course Selection Form -->
+            <form action="/enrollCoursesFaculty" method="POST">
+              <div class="form-group mb-4">
+                <label for="course" class="form-label">Available Courses</label>
+                <select id="course" name="course" class="form-control" required>
+                  <option value="">Select a course</option>
+                  <% courses.forEach(course => { %>
+                    <option value="<%= course.course_id %>"><%= course.course_name %></option>
+                  <% }); %>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Assign Course</button>
+            </form>
+          </div>
+          <a href="/faculty" class="btn btn-primary mb-3">Back to Faculty Dashboard</a>
+        </div>
+        <!-- Select Course Card -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

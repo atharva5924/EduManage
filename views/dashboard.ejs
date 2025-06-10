@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>College Database</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/bootstrap-social.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <nav id="sidebar" class="col-md-2 col-lg-2 sidebar">
+      <div class="sidebar-header">
+        <h3>Education Board</h3>
+      </div>
+      <ul class="list-unstyled components">
+        <li>
+          <a href="#" class="active">
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-cogs"></i> Settings
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-folder"></i> Documents
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-users"></i> Users
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Page Content -->
+    <div id="content">
+      <!-- Navbar -->
+      <div class="navbar">
+        <div class="search-bar">
+          <input type="text" placeholder="Search for teacher/institute">
+          <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="user-info">
+          <img src="user-avatar.png" alt="User Avatar" class="avatar">
+          <span>Hello, <strong>Morshedur Rahman</strong></span>
+        </div>
+      </div>
+
+      <!-- Dashboard Overview -->
+      <div class="overview">
+        <div class="card blue">
+          <h3>Total Current Students</h3>
+          <h1>25,569</h1>
+          <a href="#">See Details</a>
+        </div>
+        <div class="card purple">
+          <h3>Total Current Teachers</h3>
+          <h1>7,500</h1>
+          <a href="#">See Details</a>
+        </div>
+        <div class="card orange">
+          <h3>Total Current Schools</h3>
+          <h1>512</h1>
+          <a href="#">See Details</a>
+        </div>
+        <div class="card green">
+          <h3>Total Budget</h3>
+          <h1>51,9500</h1>
+          <a href="#">See Details</a>
+        </div>
+      </div>
+
+      <!-- Upcoming Seminar & Financial Aid Request -->
+      <div class="content-sections">
+        <div class="section">
+          <h3>Upcoming Seminar</h3>
+          <table>
+            <tr>
+              <td>07.07.2021</td>
+              <td>9:00 AM - 1:00 PM</td>
+              <td>
+                <button class="attend-btn">Attend</button>
+              </td>
+            </tr>
+            <tr>
+              <td>09.07.2021</td>
+              <td>10:00 AM - 1:00 PM</td>
+              <td>
+                <button class="attend-btn">Attend</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="section">
+          <h3>Financial Aid Request</h3>
+          <table>
+            <tr>
+              <td>Government Science College</td>
+              <td>Farmgate</td>
+              <td>
+                <button class="approve-btn">Approve</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Tejgaon Mohila College</td>
+              <td>Tejgaon</td>
+              <td>
+                <button class="approve-btn">Approve</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Calendar and Top Teachers -->
+      <div class="extra-sections">
+        <div class="calendar">
+          <h3>July 2021</h3>
+          <div class="calendar-grid">
+            <!-- Add a simple calendar grid here if needed -->
+          </div>
+        </div>
+        <div class="top-teachers">
+          <h3>Top Teachers</h3>
+          <ul>
+            <li>
+              <span>Mr. Abdullah Alim</span>
+              <span class="stars">★★★★☆</span>
+            </li>
+            <li>
+              <span>Ruhul Amin Ch.</span>
+              <span class="stars">★★★☆☆</span>
+            </li>
+            <li>
+              <span>Masud Rahman</span>
+              <span class="stars">★★★☆☆</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <%- include('partials/footer') %>

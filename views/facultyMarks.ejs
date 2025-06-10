@@ -1,0 +1,60 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <div class="position-relative">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+      <div class="authentication-inner py-6 mx-4">
+        <!-- Students Enrolled Card -->
+        <div class="card p-7">
+          <div class="app-brand justify-content-center mt-5">
+            <span class="app-brand-text demo text-heading fw-semibold">🎓 My College - Students Enrolled</span>
+          </div>
+          <div class="card-body mt-1">
+            <h4 class="mb-1">Students Enrolled in Your Courses</h4>
+            <p class="mb-5">Manage students and update their marks.</p>
+
+            <div class="table-responsive text-nowrap">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Student Email</th>
+                    <th>Course Name</th>
+                    <th>Marks Obtained</th>
+                    <th>Update Marks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% if (students && students.length > 0) { %>
+                    <% students.forEach(student => { %>
+                      <tr>
+                        <td><i class="ri-mail-line ri-22px text-info me-4"></i><%= student.student_email %></td>
+                        <td><i class="ri-book-2-line ri-22px text-info me-4"></i><%= student.course_name %></td>
+                        <td>
+                          <!-- Display current marks or default to 0 if no marks found -->
+                          <form action="/updateMarks" method="POST" class="d-inline">
+                            <input type="hidden" name="course_id" value="<%= student.course_id %>" />
+                            <input type="hidden" name="student_email" value="<%= student.student_email %>" />
+                            <input type="number" name="marks_obtained" value="<%= student.marks_obtained || 0 %>" min="0" max="100" required class="form-control d-inline" style="width: auto;" />
+                            <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                          </form>
+                        </td>
+                      </tr>
+                    <% }); %>
+                  <% } else { %>
+                    <tr>
+                      <td colspan="4">No students enrolled in your courses.</td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <a href="/faculty" class="btn btn-primary mb-3">Back to Faculty Dashboard</a>
+        </div>
+        <!-- Students Enrolled Card -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

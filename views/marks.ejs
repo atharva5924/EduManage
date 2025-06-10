@@ -1,0 +1,50 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <div class="position-relative">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+      <div class="authentication-inner py-6 mx-4">
+        <!-- Grades Summary Card -->
+        <div class="card p-7">
+          <div class="app-brand justify-content-center mt-5">
+            <span class="app-brand-text demo text-heading fw-semibold">📊 My College - Grades Summary</span>
+          </div>
+          <div class="card-body mt-1">
+            <h4 class="mb-4">Your Grades</h4>
+
+            <div class="table-responsive text-nowrap">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Course Name</th>
+                    <th>Exam Date</th>
+                    <th>Marks Obtained</th>
+                  </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                  <% if (marks && marks.length > 0) { %>
+                    <% marks.forEach(function(mark) { %>
+                      <tr>
+                        <td><i class="ri-book-2-line ri-22px text-info me-4"></i><%= mark.course_name %></td>
+                        <td><%= mark.exam_date %></td>
+                        <td><%= mark.marks_obtained %></td>
+                      </tr>
+                    <% }); %>
+                  <% } else { %>
+                    <tr>
+                      <td colspan="3" class="text-center">No marks available yet.</td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <a href="/student" class="btn btn-primary mb-3">Back to Student Dashboard</a>
+        </div>
+        <!-- Grades Summary Card -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Update Department</h3>
+          <form action="/updateDepartment" method="POST">
+            <input type="hidden" name="department_id" value="<%= department.department_id %>">
+            <div class="mb-3">
+              <label for="department_name" class="form-label">Department Name</label>
+              <input type="text" class="form-control" id="department_name" name="department_name" value="<%= department.department_name %>" required>
+            </div>
+            <!-- <div class="mb-3">
+              <label for="head_email" class="form-label">Head Email</label>
+              <input type="email" class="form-control" id="head_email" name="head_email" value="<%= department.head_email %>" >
+            </div> -->
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="/manageDepartments" class="btn btn-secondary">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

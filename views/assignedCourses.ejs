@@ -1,0 +1,68 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <div class="position-relative">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+      <div class="authentication-inner py-6 mx-4">
+        <!-- Assigned Courses Card -->
+        <div class="card p-7">
+          <div class="app-brand justify-content-center mt-5">
+            <span class="app-brand-text demo text-heading fw-semibold">🎓 My College - Assigned Courses</span>
+          </div>
+          <div class="card-body mt-1">
+            <h4 class="mb-1">Your Assigned Courses</h4>
+            <p class="mb-5">View, update, or remove your assigned courses.</p>
+
+            <div class="table-responsive text-nowrap">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Course Name</th>
+                    <th>Department</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                  <% if (assignedCourses && assignedCourses.length > 0) { %>
+                    <% assignedCourses.forEach(course => { %>
+                      <tr>
+                        <td><i class="ri-book-2-line ri-22px text-info me-4"></i><%= course.course_name %></td>
+                        <td><%= course.department_name %></td>
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="ri-more-2-line"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="/updateAssignedCourse/<%= course.course_id %>">
+                                <i class="ri-pencil-line me-1"></i> Update
+                              </a>
+                              <form action="/deleteAssignedCourse" method="POST" style="display:inline;">
+                                <input type="hidden" name="course_id" value="<%= course.course_id %>" />
+                                <button type="submit" class="dropdown-item">
+                                  <i class="ri-delete-bin-6-line me-1"></i> Delete
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    <% }); %>
+                  <% } else { %>
+                    <tr>
+                      <td colspan="3">No assigned courses.</td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <a href="/faculty" class="btn btn-primary mb-3">Back to Faculty Dashboard</a>
+        </div>
+        <!-- Assigned Courses Card -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

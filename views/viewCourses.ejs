@@ -1,0 +1,62 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <div class="position-relative">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+      <div class="authentication-inner py-6 mx-4">
+        <!-- Course View Card -->
+        <div class="card p-7">
+          <div class="app-brand justify-content-center mt-5">
+            <span class="app-brand-text demo text-heading fw-semibold">🎓 My College - Courses</span>
+          </div>
+          <div class="card-body mt-1">
+            <h4 class="mb-1">All Courses</h4>
+            <a href="/addCourse" class="btn btn-primary mb-3">Add Course</a>
+            <p class="mb-5">View, update, or delete courses.</p>
+
+            <div class="table-responsive text-nowrap">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Course ID</th>
+                    <th>Course Name</th>
+                    <th>Department</th> <!-- Update column to show department name -->
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                  <% courses.forEach(course => { %>
+                    <tr>
+                      <td><i class="ri-book-2-line ri-22px text-info me-4"></i><%= course.course_id %></td>
+                      <td><%= course.course_name %></td>
+                      <td><%= course.department_name %></td> <!-- Display department name -->
+                      <td>
+                        <div class="dropdown">
+                          <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                            <i class="ri-more-2-line"></i>
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/updateCourse?id=<%= course.course_id %>">
+                              <i class="ri-pencil-line me-1"></i> Update
+                            </a>
+                            <a class="dropdown-item" href="/deleteCourse?id=<%= course.course_id %>">
+                              <i class="ri-delete-bin-6-line me-1"></i> Delete
+                            </a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <a href="/admin" class="btn btn-primary mb-3">Back to Dashboard</a>
+        </div>
+        <!-- Course View Card -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

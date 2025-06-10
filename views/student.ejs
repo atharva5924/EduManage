@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <div class="position-relative">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+      <div class="authentication-inner py-6 mx-4">
+        <!-- Student Dashboard Card -->
+        <div class="card p-7">
+          <div class="app-brand justify-content-center mt-5">
+            <span class="app-brand-text demo text-heading fw-semibold">🎓 My College - Student Dashboard</span>
+          </div>
+          <div class="card-body mt-1">
+            <h4 class="mb-1">Welcome, <%= email %></h4>
+            <p class="mb-5">From here, you can manage your courses, view exam schedules, and check your grades.</p>
+
+            <div class="list-group">
+              <a href="/enrollCourses" class="list-group-item list-group-item-action">
+                <h5 class="mb-1">Enroll in Courses</h5>
+                <p class="mb-1">Select and enroll in available courses for this semester.</p>
+              </a>
+              <a href="/examSchedule" class="list-group-item list-group-item-action">
+                <h5 class="mb-1">View Exam Schedule</h5>
+                <p class="mb-1">Check the schedule for your upcoming exams.</p>
+              </a>
+              <a href="/marks" class="list-group-item list-group-item-action">
+                <h5 class="mb-1">View Grades</h5>
+                <p class="mb-1">Review the marks obtained in your courses.</p>
+              </a>
+              <a href="/enrolledCourses" class="list-group-item list-group-item-action">
+                <h5 class="mb-1">View Enrolled Courses</h5>
+                <p class="mb-1">See the courses you are currently enrolled in.</p>
+              </a> <!-- Option to view enrolled courses -->
+            </div>
+          </div>
+          <a href="/student" class="btn btn-primary mb-3">Back to Main Menu</a>
+        </div>
+        <!-- Student Dashboard Card -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

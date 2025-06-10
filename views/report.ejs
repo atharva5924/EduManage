@@ -1,0 +1,183 @@
+<%- include('partials/header') %>
+<div class="container" style="margin-top: 2px;">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4" style="border-bottom: 2px solid #8c57ff;">
+    <div class="col-md-3 mb-2 mb-md-0">
+      <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+        <img src="../assets/img/favicon/favicon.ico" alt="">
+      </a>
+    </div>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" style="position: relative;">
+      <li class="nav-item"><a href="/viewUsers" class="nav-link px-2 link-secondary">Manage Users</a></li>
+      <li class="nav-item"><a href="/viewCourses" class="nav-link px-2 link-body-emphasis">Manage Courses</a></li>
+      <li class="nav-item"><a href="/manageDepartments" class="nav-link px-2 link-body-emphasis">Manage Departments</a></li>
+      <li class="nav-item"><a href="/viewMarks" class="nav-link px-2 link-body-emphasis">View Marks</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+      <a href="/login" class="btn btn-outline-primary me-2">Logout</a>
+    </div>
+  </header>
+</div>
+
+<!-- Add this style block for the hover effect, border, and vertical line -->
+<style>
+/* Hover effect */
+.nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #8c57ff;
+    color: white !important;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+
+/* Purple border for the navbar */
+header {
+    border-bottom: 2px solid #8c57ff;
+}
+
+/* Vertical lines between navbar items */
+.nav-item {
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.nav-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 1px;
+    background-color: #8c57ff; /* Purple vertical line */
+}
+</style>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Main Content -->
+        <div class="col-md-12">
+            <h1 class="mt-4 text-center" style="font-size: 2.5rem; color:#8c57ff;">Welcome, Admin</h1>
+
+            <!-- Admin Dashboard Overview -->
+            <div class="card mb-4 shadow" style="border-radius: 1rem; overflow: hidden;">
+                <div class="card-header" style="background-color: #8c57ff; color: white; text-align: center;">
+                    <h2 style="margin: 0; font-size: 1.75rem;color: white;">Admin Dashboard</h2>
+                </div>
+                <div class="card-body" style="background-color: #f8f9fa;">
+                    <!-- <div class="text-center mb-4">
+                        <img src="https://via.placeholder.com/150" alt="Dashboard Icon" class="img-fluid" style="border-radius: 50%; width: 100px; height: 100px;">
+                    </div> -->
+                    <h4 class="lead text-center" style="margin: 3px; font-weight: bold;">
+                        Welcome to your admin dashboard. From here, you can manage users, courses, departments, and view reports.
+                    </h4>
+                    <!-- <div class="text-center">
+                        <a href="/manageUsers" class="btn btn-primary btn-lg mx-2">Manage Users</a>
+                        <a href="/viewReports" class="btn btn-success btn-lg mx-2">View Reports</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <!-- Sidebar Options as Custom Checkboxes -->
+    
+        
+     
+
+      <!-- System Statistics -->
+      <div class="row mt-4">
+        <!-- Student Count -->
+        <div class="col-sm-6 col-lg-3 mb-4">
+          <div class="card shadow border border-primary h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-2">
+                <div class="avatar me-4">
+                  <span class="avatar-initial rounded bg-label-primary">
+                    <i class="ri-group-line ri-24px"></i>
+                  </span>
+                </div>
+                <h4 class="mb-0"><%= studentCount %></h4>
+              </div>
+              <h6 class="mb-0 fw-normal">Total Students</h6>
+              <p class="mb-0">
+                <small class="text-muted">Updated this semester</small>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Faculty Count -->
+        <div class="col-sm-6 col-lg-3 mb-4">
+          <div class="card shadow border border-warning h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-2">
+                <div class="avatar me-4">
+                  <span class="avatar-initial rounded bg-label-warning">
+                    <i class="ri-user-line ri-24px"></i>
+                  </span>
+                </div>
+                <h4 class="mb-0"><%= facultyCount %></h4>
+              </div>
+              <h6 class="mb-0 fw-normal">Total Faculty</h6>
+              <p class="mb-0">
+                <small class="text-muted">Updated this semester</small>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Count -->
+        <div class="col-sm-6 col-lg-3 mb-4">
+          <div class="card shadow border border-danger h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-2">
+                <div class="avatar me-4">
+                  <span class="avatar-initial rounded bg-label-danger">
+                    <i class="ri-book-line ri-24px"></i>
+                  </span>
+                </div>
+                <h4 class="mb-0"><%= courseCount %></h4>
+              </div>
+              <h6 class="mb-0 fw-normal">Total Courses</h6>
+              <p class="mb-0">
+                <small class="text-muted">Updated this semester</small>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Department Count -->
+        <div class="col-sm-6 col-lg-3 mb-4">
+          <div class="card shadow border border-info h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-2">
+                <div class="avatar me-4">
+                  <span class="avatar-initial rounded bg-label-info">
+                    <i class="ri-building-line ri-24px"></i>
+                  </span>
+                </div>
+                <h4 class="mb-0"><%= departmentCount %></h4>
+              </div>
+              <h6 class="mb-0 fw-normal">Total Departments</h6>
+              <p class="mb-0">
+                <small class="text-muted">Updated this semester</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

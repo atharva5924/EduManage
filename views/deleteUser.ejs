@@ -1,0 +1,15 @@
+
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <h1>Delete User</h1>
+  <p>Are you sure you want to delete the user with email: <strong><%= user.email %></strong>?</p>
+  
+  <form action="/deleteUser" method="GET">
+    <input type="hidden" name="id" value="<%= user.email %>">
+    <button type="submit" class="btn btn-danger">Delete User</button>
+    <a href="/viewUsers" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+
+<%- include('partials/footer') %>

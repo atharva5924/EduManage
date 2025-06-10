@@ -1,0 +1,62 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <div class="position-relative">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+      <div class="authentication-inner py-6 mx-4">
+        <!-- Department View Card -->
+        <div class="card p-7">
+          <div class="app-brand justify-content-center mt-5">
+            <span class="app-brand-text demo text-heading fw-semibold">🎓 My College - Departments</span>
+          </div>
+          <div class="card-body mt-1">
+            <h4 class="mb-1">All Departments</h4>
+            <a href="/addDepartment" class="btn btn-primary mb-3">Add Department</a>
+            <p class="mb-5">View, update, or delete departments.</p>
+
+            <div class="table-responsive text-nowrap">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Department ID</th>
+                    <th>Department Name</th>
+                    <th>Head Email</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                  <% departments.forEach(department => { %>
+                    <tr>
+                      <td><i class="ri-building-line ri-22px text-info me-4"></i><%= department.department_id %></td>
+                      <td><%= department.department_name %></td>
+                      <td><%= department.head_email %></td>
+                      <td>
+                        <div class="dropdown">
+                          <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                            <i class="ri-more-2-line"></i>
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/updateDepartment?id=<%= department.department_id %>">
+                              <i class="ri-pencil-line me-1"></i> Update
+                            </a>
+                            <a class="dropdown-item" href="/deleteDepartment?id=<%= department.department_id %>">
+                              <i class="ri-delete-bin-6-line me-1"></i> Delete
+                            </a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <a href="/admin" class="btn btn-primary mb-3">Back to Dashboard</a>
+        </div>
+        <!-- Department View Card -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

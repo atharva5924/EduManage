@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <h1>Update Course</h1>
+
+  <form action="/updateAssignedCourse" method="POST">
+    <div class="form-group">
+      <label for="course">Select Course</label>
+      <select id="course" name="course_id" class="form-control" required>
+        <option value="">Select a course</option>
+        <% courses.forEach(course => { %>
+          <option value="<%= course.course_id %>" <%= course.course_id == currentCourse.course_id ? 'selected' : '' %>><%= course.course_name %></option>
+        <% }); %>
+      </select>
+    </div>
+
+    <input type="hidden" name="old_course_id" value="<%= currentCourse.course_id %>"/>
+
+    <button type="submit" class="btn btn-primary">Update Course</button>
+  </form>
+
+  <a href="/assignedCourses" class="btn btn-secondary mt-3">Back to Assigned Courses</a>
+</div>
+
+<%- include('partials/footer') %>

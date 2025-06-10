@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <div class="position-relative">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+      <div class="authentication-inner py-6 mx-4">
+        <!-- Enrolled Courses Card -->
+        <div class="card p-7">
+          <div class="app-brand justify-content-center mt-5">
+            <span class="app-brand-text demo text-heading fw-semibold">🎓 My College - Enrolled Courses</span>
+          </div>
+          <div class="card-body mt-1">
+            <h4 class="mb-1">Your Enrolled Courses</h4>
+            <p class="mb-5">View, update, or drop your courses.</p>
+
+            <div class="table-responsive text-nowrap">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Course Name</th>
+                    <th>Department</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                  <% enrolledCourses.forEach(course => { %>
+                    <tr>
+                      <td><i class="ri-book-2-line ri-22px text-info me-4"></i><%= course.course_name %></td>
+                      <td><%= course.department_name %></td>
+                      <td>
+                        <div class="dropdown">
+                          <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                            <i class="ri-more-2-line"></i>
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/updateCourse/<%= course.course_id %>">
+                              <i class="ri-pencil-line me-1"></i> Update
+                            </a>
+                            <a class="dropdown-item" href="/deleteCourses?id=<%= course.course_id %>">
+                              <i class="ri-delete-bin-6-line me-1"></i> Drop
+                            </a>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <a href="/student" class="btn btn-primary mb-3">Back to Dashboard</a>
+        </div>
+        <!-- Enrolled Courses Card -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
