@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+<div class="container mt-5">
+  <h1>Add Department</h1>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <form action="/faculty" method="POST">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="email" value="<%= email %>" readonly />
+            </div>
+            <div class="form-group">
+                <label for="f_name">First Name</label>
+                <input type="text" class="form-control" name="f_name" />
+              </div>
+              <div class="form-group">
+                <label for="l_name">Last Name</label>
+                <input type="text" class="form-control" name="l_name" />
+              </div>
+
+            <div class="form-group">
+              <label for="department">Department Name</label>
+              <select id="department" name="department" class="form-control" required>
+                <option value="">Select a department</option>
+                <option value="1">Computer Science</option>
+                <option value="2">Electrical Engineering</option>
+                <option value="3">Mechanical Engineering</option>
+                <option value="4">Civil Engineering</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-dark">Submit Department</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%- include('partials/footer') %>

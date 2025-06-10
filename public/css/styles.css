@@ -1,0 +1,85 @@
+/* General Styles */
+body {
+  background-color: #E8ECEF; /* Light grey background */
+  font-family: Arial, sans-serif;
+}
+
+.centered {
+  padding-top: 200px;
+  text-align: center;
+}
+
+.secret-text {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #000; /* Black background with white text */
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333; /* Dark grey background */
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #fff; /* White text */
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #555; /* Lighter grey on hover */
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #333; /* Dark grey border */
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #333; /* Dark grey for headers */
+  color: #fff; /* White text */
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* Light grey for alternating rows */
+}
+
+tr:hover {
+  background-color: #e0e0e0; /* Slightly darker grey on hover */
+}
+
+td {
+  border-right: 1px solid #333; /* Dark grey vertical lines */
+}
+
+td:last-child {
+  border-right: none; /* Remove the border from the last column */
+}
+
+a {
+  color: #007bff; /* Bootstrap primary color */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
